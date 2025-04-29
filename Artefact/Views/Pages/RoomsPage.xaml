@@ -1,0 +1,69 @@
+﻿<Page x:Class="Artefact.Views.Pages.RoomsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      mc:Ignorable="d"
+      Width="Auto" Height="Auto"
+      Title="Помещения">
+
+    <StackPanel Margin="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        
+        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="exportBtn" Style="{StaticResource outlineButon}">
+                <StackPanel Orientation="Horizontal">
+                    <Icon:PackIconMaterial Kind="Export" Margin="0 0 10 0" Height="15" Width="20"/>
+                    <TextBlock Text="Экспорт" FontSize="12" FontFamily="{StaticResource MediumFont}"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="addBtn" Style="{StaticResource colorButon}">
+                <StackPanel Orientation="Horizontal">
+                    <Icon:PackIconMaterial Kind="Plus" Margin="0 0 10 0" Height="15" Width="20"/>
+                    <TextBlock Text="Добавить" FontSize="12" FontFamily="{StaticResource MediumFont}"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        
+        <TabControl Style="{StaticResource tabControlStyle}" Margin="0 20 0 0">
+            <TabItem Header="Хранилища" Style="{StaticResource tabItemStyle}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="Хранилища" Style="{StaticResource tableHeader}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                    <StackPanel Grid.Row="1" Margin="10">
+                        <DataGrid x:Name="dgStorages" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Номер хранилища" IsReadOnly="True"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            
+            <TabItem Header="Залы" Style="{StaticResource tabItemStyle}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="Залы" Style="{StaticResource tableHeader}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                    <StackPanel Grid.Row="1" Margin="10">
+                        <DataGrid>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Width="*" Header="Номер зала" IsReadOnly="True"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </StackPanel>
+</Page>
