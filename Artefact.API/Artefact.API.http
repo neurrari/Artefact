@@ -1,0 +1,6 @@
+@Artefact.API_HostAddress = http://localhost:5234
+
+GET {{Artefact.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

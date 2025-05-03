@@ -3,18 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:local="clr-namespace:Artefact"
-             StartupUri="Views/MainWindow.xaml"
+             StartupUri="Views/Windows/MainWindow.xaml"
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Styles/Colors.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/Colors.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <!--FONTS-->
             
-            <FontFamily x:Key="MediumFont">./Fonts/#Montserrat Medium</FontFamily>
-            <FontFamily x:Key="BoldFont">./Fonts/#Montserrat Bold</FontFamily>
+            <FontFamily x:Key="MediumFont">./Resources/Fonts/#Montserrat Medium</FontFamily>
+            <FontFamily x:Key="BoldFont">./Resources/Fonts/#Montserrat Bold</FontFamily>
 
             <!--STYLES-->
             
