@@ -1,10 +1,9 @@
-﻿<Window x:Class="Artefact.MainWindow"
+﻿<Window x:Class="Artefact.Views.Windows.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
-        xmlns:local="clr-namespace:Artefact"
         mc:Ignorable="d"
         Height="920" Width="1440" AllowsTransparency="True" WindowStyle="None"
         WindowStartupLocation="CenterScreen" Background="Transparent">
@@ -28,41 +27,45 @@
                     </Grid.RowDefinitions>
 
                     <!--LOGO-->
-                    
+
                     <Border Grid.Row="0" Background="#f2f2f2" MouseLeftButtonDown="Border_MouseLeftButtonDown" CornerRadius="5 0 0 0">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 5">
                             <Image Source="/Resources/Images/rhombus.png" Width="25" Height="20" Margin="5 0"/>
                             <TextBlock Text="АИС Артефакт" Foreground="{StaticResource SecondaryBrush}" FontSize="14" VerticalAlignment="Center" FontFamily="{StaticResource MediumFont}"/>
                         </StackPanel>
                     </Border>
-                    
+
                     <!--MENU ITEMS-->
 
                     <StackPanel Grid.Row="1">
+                        
                         <!--ОСНОВНОЕ-->
                         <TextBlock Text="Основное" Style="{StaticResource menuTitle}"/>
 
-                        <RadioButton x:Name="mainPageRb" Style="{StaticResource menuButton}" Checked="MenuButton_Checked" Unchecked="MenuButton_Checked">
+                        <RadioButton x:Name="dashboardPageRb" Style="{StaticResource menuButton}" Checked="MenuButton_Checked" Unchecked="MenuButton_Checked">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="ViewDashboardOutline" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Главная" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
-
                         <RadioButton x:Name="fundsPageRb" Style="{StaticResource menuButton}" Checked="MenuButton_Checked" Unchecked="MenuButton_Checked">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="ArchiveOutline" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Основной фонд" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
-
                         <RadioButton x:Name="tempStorePageRb" Style="{StaticResource menuButton}" Checked="MenuButton_Checked" Unchecked="MenuButton_Checked">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="ClockOutline" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Временное хранение" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
-
+                        <RadioButton x:Name="dictionariesPageRb" Style="{StaticResource menuButton}" Checked="MenuButton_Checked" Unchecked="MenuButton_Checked">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="ListBoxOutline" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Справочники" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
                         <RadioButton x:Name="reportPageRb" Style="{StaticResource menuButton}" Checked="MenuButton_Checked" Unchecked="MenuButton_Checked">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="FileDocumentOutline" Style="{StaticResource menuButtonIcon}"/>
@@ -72,21 +75,19 @@
 
                         <!--ДОПОЛНИТЕЛЬНО-->
                         <TextBlock Text="Дополнительно" Style="{StaticResource menuTitle}"/>
-
+                        
                         <RadioButton x:Name="roomsPageRb" Style="{StaticResource menuButton}" Checked="MenuButton_Checked" Unchecked="MenuButton_Checked">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="HomeOutline" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Помещения" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
-
                         <RadioButton x:Name="helpPageRb" Style="{StaticResource menuButton}" Checked="MenuButton_Checked" Unchecked="MenuButton_Checked">
                             <StackPanel Orientation="Horizontal">
-                                <Icon:PackIconMaterial Kind="ListBoxOutline" Style="{StaticResource menuButtonIcon}"/>
+                                <Icon:PackIconMaterial Kind="HelpCircleOutline" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Справка" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
-
                         <RadioButton x:Name="usersPageRb" Style="{StaticResource menuButton}" Checked="MenuButton_Checked" Unchecked="MenuButton_Checked">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="AccountOutline" Style="{StaticResource menuButtonIcon}"/>
@@ -101,7 +102,7 @@
 
                     <!--LOGOUT BUTTON-->
 
-                    <Button Grid.Row="3" Margin="60 20" x:Name="logoutBtn" Style="{StaticResource colorButon}" Click="logoutBtn_Click">
+                    <Button Grid.Row="3" Margin="60 20" x:Name="logoutBtn" Click="logoutBtn_Click" Style="{StaticResource colorButon}">
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Logout" Margin="0 0 10 0" Height="15" Width="20"/>
                             <TextBlock Text="Выйти" FontSize="12" FontFamily="{StaticResource MediumFont}"/>
@@ -153,7 +154,7 @@
 
                             <TextBlock x:Name="pageTitle" Grid.Column="0" Text="Домашняя страница" Style="{StaticResource header}"/>
 
-                            <Button x:Name="closePageBtn" Grid.Column="1" Click="closePageBtn_Click" Style="{StaticResource lightControlButon}" HorizontalAlignment="Right">
+                            <Button x:Name="closePageBtn" Grid.Column="1"  Click="closePageBtn_Click" Style="{StaticResource lightControlButon}" HorizontalAlignment="Right">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Close" Style="{StaticResource lightControlButtonIcon}"/>
                                 </StackPanel>
@@ -163,10 +164,9 @@
 
                     <!--CONTENT SECTION-->
 
-                    <Frame x:Name="MainFrame" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Navigated="MainFrame_Navigated" Margin="10" NavigationUIVisibility="Hidden"></Frame>
+                    <Frame x:Name="MainFrame" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Navigated="MainFrame_Navigated" Margin="10" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </Border>
-            
         </Grid>
     </Border>
 </Window>

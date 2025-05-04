@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Artefact.ViewModels.Pages
 {
-    public class UsersPageViewModel : PageViewModelBase
+    public class UsersPageViewModel
     {
-        public override string Title => "Пользователи";
-        public UsersPageViewModel() { }
+        
     }
 }

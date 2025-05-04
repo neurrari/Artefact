@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Artefact.ViewModels.Pages
 {
-    public class TempStorePageViewModel : PageViewModelBase
+    public class TempStorePageViewModel
     {
-        public override string Title => "Временное хранение";
-        public TempStorePageViewModel() { }
+        
     }
 }

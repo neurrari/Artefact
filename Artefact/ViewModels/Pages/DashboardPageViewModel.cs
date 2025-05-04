@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Artefact.ViewModels.Pages
 {
-    public class DashboardPageViewModel : PageViewModelBase
+    public class DashboardPageViewModel
     {
-        public override string Title => "Главная";
-        public DashboardPageViewModel() { }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Artefact.ViewModels.Base;
+using Artefact.ViewModels.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,84 +8,29 @@ using System.Threading.Tasks;
 
 namespace Artefact.Services.Navigation
 {
-    public class NavigationService : BaseViewModel, INavigationService
+    public class NavigationService : INavigationService
     {
-        private BaseViewModel _currentPageViewModel;
-        private readonly Func<Type, BaseViewModel> _viewModelFactory;
-        private string _currentPageTitle;
-        private bool _isCloseButtonVisible;
-
-        public BaseViewModel CurrentPageViewModel
+        private object _currentViewModel;
+        public object CurrentViewModel
         {
-            get => _currentPageViewModel;
+            get => _currentViewModel;
             private set
             {
-                _currentPageViewModel = value;
-                OnPropertyChanged();
-                CurrentPageViewModelChanged?.Invoke();
-                UpdatePageProperties();
+                _currentViewModel = value;
+                CurrentViewModelChanged?.Invoke();
             }
         }
 
-        public string CurrentPageTitle
+        public event Action CurrentViewModelChanged;
+
+        public void NavigateTo<T>() where T : PageViewModelBase
         {
-            get => _currentPageTitle;
-            private set
-            {
-                _currentPageTitle = value;
-                OnPropertyChanged();
-                CurrentPageTitleChanged?.Invoke();
-            }
+            CurrentViewModel = Activator.CreateInstance<T>();
         }
 
-        public bool IsCloseButtonVisible
+        public void NavigateToWelcome()
         {
-            get => _isCloseButtonVisible;
-            private set
-            {
-                _isCloseButtonVisible = value;
-                OnPropertyChanged();
-                IsCloseButtonVisibleChanged?.Invoke();
-            }
-        }
-
-        public event Action CurrentPageViewModelChanged;
-        public event Action CurrentPageTitleChanged;
-        public event Action IsCloseButtonVisibleChanged;
-
-        public NavigationService(Func<Type, BaseViewModel> viewModelFactory)
-        {
-            _viewModelFactory = viewModelFactory;
-        }
-
-        public void NavigateTo<TViewModel>() where TViewModel : BaseViewModel
-        {
-            BaseViewModel viewModel = _viewModelFactory.Invoke(typeof(TViewModel));
-            CurrentPageViewModel = viewModel;
-        }
-
-        public void NavigateToWelcomePage()
-        {
-            NavigateTo<WelcomePageViewModel>();
-        }
-
-        private void UpdatePageProperties()
-        {
-            if (CurrentPageViewModel is WelcomePageViewModel)
-            {
-                CurrentPageTitle = string.Empty;
-                IsCloseButtonVisible = false;
-            }
-            else if (CurrentPageViewModel is PageViewModelBase pageVm)
-            {
-                CurrentPageTitle = pageVm.Title;
-                IsCloseButtonVisible = true;
-            }
-            else
-            {
-                CurrentPageTitle = "Default Title";
-                IsCloseButtonVisible = true;
-            }
+            CurrentViewModel = new WelcomePageViewModel();
         }
     }
 }

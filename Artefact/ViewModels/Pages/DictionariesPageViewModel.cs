@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Artefact.ViewModels.Pages
 {
-    public class DictionariesPageViewModel : PageViewModelBase
+    public class DictionariesPageViewModel
     {
-        public override string Title => "Справочники";
-        public DictionariesPageViewModel() { }
+
     }
 }

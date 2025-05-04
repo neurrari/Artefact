@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace Artefact.ViewModels.Pages
 {
-    public class WelcomePageViewModel : PageViewModelBase
+    public class WelcomePageViewModel
     {
-        public override string Title => " ";
-
-        public WelcomePageViewModel() { }
+        
     }
 }

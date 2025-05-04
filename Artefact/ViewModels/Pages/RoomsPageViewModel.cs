@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Artefact.ViewModels.Pages
 {
-    public class RoomsPageViewModel : PageViewModelBase
+    public class RoomsPageViewModel
     {
-        public override string Title => "Помещения";
-        public RoomsPageViewModel() { }
+        
     }
 }

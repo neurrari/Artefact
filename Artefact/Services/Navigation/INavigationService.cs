@@ -9,13 +9,9 @@ namespace Artefact.Services.Navigation
 {
     public interface INavigationService
     {
-        BaseViewModel CurrentPageViewModel { get; }
-        event Action CurrentPageViewModelChanged;
-        void NavigateTo<TViewModel>() where TViewModel : BaseViewModel;
-        void NavigateToWelcomePage();
-        string CurrentPageTitle { get; }
-        event Action CurrentPageTitleChanged;
-        bool IsCloseButtonVisible { get; }
-        event Action IsCloseButtonVisibleChanged;
+        event Action CurrentViewModelChanged;
+        object CurrentViewModel { get; }
+        void NavigateTo<T>() where T : PageViewModelBase;
+        void NavigateToWelcome();
     }
 }
