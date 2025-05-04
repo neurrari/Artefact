@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Artefact", "Artefact\Artefact.csproj", "{001176AB-9268-462C-9D2E-3512276C0721}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Artefact.WPF", "Artefact\Artefact.WPF.csproj", "{001176AB-9268-462C-9D2E-3512276C0721}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Artefact.API", "Artefact.API\Artefact.API.csproj", "{0502A074-CEB4-42A9-9011-A202C97620F2}"
 EndProject
